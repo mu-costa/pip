@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; align-items: center; flex-direction: column;">
+        <div id="myPlayer"></div>
+        <button style="border-radius: 50px; background-color: chartreuse; padding: 4px;"
+            onmouseover="this.style.backgroundColor='green'" 
+            onmouseleave="this.style.backgroundColor='chartreuse'"
+            onclick="triggerPiP()">
+            <img style="padding: 5px;" src="tv_casa.png" alt="" width="50px">
+        </button>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+        const options = {
+            id: 944548886,
+            width: 480,
+            height: 720
+        }
+
+        const player = new Vimeo.Player('myPlayer', options);
+        
+        player.setVolume(0);
+
+        
+        function triggerPiP() {
+            player.play()
+            const iframe = document.getElementsByTagName('iframe')[0];
+            iframe.getElementsByTagName('video');
+            console.log(iframe.getElementsByTagName('video'));
+            player.requestPictureInPicture();   
+        }
+
+        /* player.play(); */
+
+    </script>
+</body>
+
+</html>
